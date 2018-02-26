@@ -11,7 +11,13 @@ AllCops:
     - config.ru
     - app/models/application_record.rb
     - app/controllers/application_controller.rb
+    - db/schema.rb
+    - db/migrate/*
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
   Enabled: true
+
+Style/Documentation:
+  Exclude:
+    - app/controllers/*
