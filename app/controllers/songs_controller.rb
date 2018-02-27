@@ -6,7 +6,25 @@ class SongsController < ApplicationController
   end
 
   def search
-    song_params = params["song"].reject{ |_, v| v.blank? }
+    redirect_to(songs_url, alert: empty_params_alert) and return unless song_params.present?
     SongSearch.run(song_params)
   end
+
+  private
+
+  def song_params
+    params.require(:song)
+      .permit(:title, :artist_name, :album_title)
+      .reject{ |_, v| v.blank? }
+  end
+
+  def empty_params_alert
+    "Please search by at least one param"
+  end
 end
+
+  # <% if flash[:alert] %>
+  #   <div class="alert alert-info" role="alert">
+  #     <%= flash[:alert] %>
+  #   </div>
+  # <% end %>
