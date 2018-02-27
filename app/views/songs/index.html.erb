@@ -1,3 +1,25 @@
 <div class="container-fluid">
   <%= render "song_search" %>
+
+  <div class="container-fluid">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Song name</th>
+          <th>Artist</th>
+          <th>Album</th>
+        </tr>
+      </thead>
+      <%= paginate @songs %>
+      <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+              <td><%= song.title %></td>
+              <td><%= song.artist_name %></td>
+              <td><%= song.album_title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
