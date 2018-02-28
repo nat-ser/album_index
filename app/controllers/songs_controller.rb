@@ -22,9 +22,3 @@ class SongsController < ApplicationController
     "Please search by at least one param"
   end
 end
-
-  # <% if flash[:alert] %>
-  #   <div class="alert alert-info" role="alert">
-  #     <%= flash[:alert] %>
-  #   </div>
-  # <% end %>
