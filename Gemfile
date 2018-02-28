@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'jquery-rails'
+gem 'kaminari'
+
 gem 'rspotify'
 gem 'seed_dump'
 
@@ -56,11 +58,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', '~> 0.49.0', require: false
-end
-
-group :test do
-  gem 'factory_bot'
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
