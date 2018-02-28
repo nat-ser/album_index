@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Song, type: :model do
+describe "valid Song", type: :model do
   let(:song) do
     Song.create(
       title: "Night Ride",
@@ -11,6 +11,12 @@ RSpec.describe Song, type: :model do
     )
   end
 
+  it "is valid with valid attributes" do
+    expect(song.valid?).to eq(true)
+  end
+end
+
+describe "invalid Song", type: :model do
   let(:song_without_title) do
     Song.create(
       artist_name: "The Growlers",
@@ -28,24 +34,13 @@ RSpec.describe Song, type: :model do
   let(:song_without_album) do
     Song.create(
       title: "Night Ride",
-      artist_name: "The Growlers",
+      artist_name: "The Growlers"
     )
   end
-  it "is valid with valid attributes" do
-    expect(song.valid?).to eq(true)
-  end
 
-  it "is not valid without a title" do
-    binding.pry
+  it "is not valid without requires attributes" do
     expect(song_without_title.valid?).to eq(false)
-  end
-
-  it "is not valid without an album_title" do
     expect(song_without_album.valid?).to eq(false)
-
-  end
-
-  it "is not valid without a artist_name" do
     expect(song_without_artist.valid?).to eq(false)
   end
 end
