@@ -6,13 +6,9 @@ class SongsController < ApplicationController
   end
 
   def search
-    @songs = SongSearch.run(song_params) if song_params.present?
-    respond_to :json
-    if @songs
-      render json: { songs: @songs }
-    else
-      render json: { error: empty_params_alert}
-    end
+    redirect_to(songs_url) && return unless song_params.present?
+    @songs = SongSearch.run(song_params).page
+    @error = no_results_alert if @songs == []
   end
 
   private
@@ -23,7 +19,7 @@ class SongsController < ApplicationController
           .reject { |_, v| v.blank? }
   end
 
-  def empty_params_alert
-    "Please search by at least one param"
+  def no_results_alert
+    "No results!"
   end
 end
