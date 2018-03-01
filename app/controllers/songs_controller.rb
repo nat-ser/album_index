@@ -6,10 +6,13 @@ class SongsController < ApplicationController
   end
 
   def search
-    unless song_params.present?
-      redirect_to(songs_url, alert: empty_params_alert) && return
+    @songs = SongSearch.run(song_params) if song_params.present?
+    respond_to :json
+    if @songs
+      render json: { songs: @songs }
+    else
+      render json: { error: empty_params_alert}
     end
-    SongSearch.run(song_params)
   end
 
   private
