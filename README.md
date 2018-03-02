@@ -51,7 +51,7 @@ rubocop
 - I did not create separate models for Album and Artist because it did not make sense for the scope of this project
 - For the same reason, I also did not create a separate controller for the Search
 
-### SongSearch
+#### SongSearch
 - Service class that only has class methods and holds no state
 - Con -> the search is very basic -> ideally more relevant results should show up first
 
