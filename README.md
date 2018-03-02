@@ -32,6 +32,10 @@ rspec
 ```
 rubocop
 ```
+4. Run server locally
+```
+rails s
+```
 
 ---
 
