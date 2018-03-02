@@ -61,6 +61,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem "chromedriver-helper", '1.0.0'
   gem 'rspec-rails', '~> 3.5'
 end
 
