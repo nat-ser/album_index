@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <table class="song-table table table-striped">
+<div class="container-fluid p-4">
+  <table class="song-table table table-striped table-hover">
     <thead>
       <tr>
         <th>Song name</th>
@@ -7,7 +7,7 @@
         <th>Album</th>
       </tr>
     </thead>
-    <%= paginate @songs %>
+
     <tbody>
       <% @songs.each do |song| %>
         <tr>

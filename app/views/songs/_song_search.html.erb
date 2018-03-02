@@ -1,20 +1,41 @@
-<nav class="navbar navbar-light bg-light">
+<div class="container-fluid p-4">
 
   <%= form_tag(
     search_songs_path,
     method: "get",
     remote: true,
-    class: "form-inline"
     ) do %>
-    <%= label_tag("song[title]", "Song") %>
-    <%= text_field_tag("song[title]",) %>
 
-    <%= label_tag("song[artist_name]", "Artist") %>
-    <%= text_field_tag("song[artist_name]",) %>
+    <div class="row">
+      <div class="form-group col-lg-4">
+        <%= label_tag("song[title]", "Song") %>
+        <%= text_field_tag "song[title]",
+          nil,
+          class: "form-control",
+          placeholder: "title" %>
+      </div>
 
-    <%= label_tag("song[album_title]", "Album") %>
-    <%= text_field_tag("song[album_title]") %>
+      <div class="form-group col-lg-4">
+        <%= label_tag("song[artist_name]", "Artist") %>
+        <%= text_field_tag "song[artist_name]",
+          nil,
+          class: "form-control",
+          placeholder: "artist" %>
+      </div>
 
-    <%= submit_tag("Search") %>
+      <div class="form-group col-lg-4">
+        <%= label_tag("song[album_title]", "Album") %>
+        <%= text_field_tag "song[album_title]",
+          nil,
+          class: "form-control",
+          placeholder: "album" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
-</nav>
+</div>

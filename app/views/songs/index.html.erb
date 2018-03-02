@@ -1,5 +1,9 @@
 <div class="container-fluid">
   <%= render "song_search" %>
 
+  <div class="container-fluid px-4">
+    <%= paginate @songs, window: 1 %>
+  </div>
+
   <%= render "song_table" %>
 </div>
