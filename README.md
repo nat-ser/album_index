@@ -16,6 +16,11 @@ rake db:setup
 ```
 rake db:seed
 ```
+4. Run server locally
+```
+rails s
+```
+
 ---
 
 ### To Test
@@ -31,10 +36,6 @@ rspec
 3. Run linter/ static code analyzer
 ```
 rubocop
-```
-4. Run server locally
-```
-rails s
 ```
 
 ---
