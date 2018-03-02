@@ -6,19 +6,20 @@ class SongsController < ApplicationController
   end
 
   def search
-    redirect_to(songs_url, alert: empty_params_alert) and return unless song_params.present?
-    SongSearch.run(song_params)
+    redirect_to(songs_url) && return unless song_params.present?
+    @songs = SongSearch.run(song_params).page
+    @error = no_results_alert if @songs == []
   end
 
   private
 
   def song_params
     params.require(:song)
-      .permit(:title, :artist_name, :album_title)
-      .reject{ |_, v| v.blank? }
+          .permit(:title, :artist_name, :album_title)
+          .reject { |_, v| v.blank? }
   end
 
-  def empty_params_alert
-    "Please search by at least one param"
+  def no_results_alert
+    "No results!"
   end
 end

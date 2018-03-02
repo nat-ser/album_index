@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-class SongSearch
 
+# Service responsible for conducting the song search by parameters
+class SongSearch
   def self.run(params)
     return unless params.present?
     songs = Song.all
@@ -10,7 +11,7 @@ class SongSearch
     songs
   end
 
-  private
+  private_class_method
 
   def self.filter_by_param(songs, key, param)
     songs.where(

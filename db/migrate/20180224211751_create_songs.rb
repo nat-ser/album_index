@@ -3,9 +3,9 @@
 class CreateSongs < ActiveRecord::Migration[5.1]
   def change
     create_table :songs do |t|
-      t.string :title
-      t.string :album_title
-      t.string :artist_name
+      t.string :title, null: false
+      t.string :album_title, null: false
+      t.string :artist_name, null: false
 
       t.timestamps
     end
